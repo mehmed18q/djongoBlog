@@ -1,0 +1,20 @@
+{% load  static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Articels</title>
+        <link rel="stylesheet" href="{% static 'style.css' %}">
+    </head>
+    <body>
+       <h1>Articels List</h1>
+       {% comment %} We use {% %} to coding like if, for{% endcomment %}
+       {% comment %} We use {{ }} to Get Data {% endcomment %}
+
+       {% for i in articels %}
+       <h2><a href="#">{{i.title}}</a></h2>
+       <p>{{i.snippet}}</p>
+       <p>{{i.date}}</p>
+       {% endfor %}
+    </body>
+</html>
