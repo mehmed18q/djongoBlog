@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %} Articel {% endblock title %}
+
+{% block content %}
+    <div class="article_detial">
+        <div class="article">
+            <h3>{{ articel.title }}</h3>
+        </hr>
+        <img src="{{articel.Image.url}}">
+    </br>
+            <p>{{ articel.body }}</p>
+        </br>
+        <p>{{ articel.date }}</p>
+        </div>
+    </div>
+{% endblock content %}

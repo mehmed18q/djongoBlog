@@ -15,6 +15,9 @@ Including another URLconf
 """
 from django.urls import path  # path('url', 'function')
 from . import views
+
+app_name = "articel"
 urlpatterns = [  
-    path('', views.articelsList),
+    path('', views.articelsList, name="List"),
+    path('<slug>', views.articelDetial, name="Detial"),
 ]

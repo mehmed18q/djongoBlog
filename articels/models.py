@@ -7,6 +7,7 @@ class Articel(models.Model):
     slog = models.SlugField()
     body = models.TextField()
     date = models.DateTimeField(auto_now_add=True)
+    Image = models.ImageField(default="default.jpg", blank = True)
 
     # Return in Admin title alternative object
     def __str__(self):
