@@ -5,13 +5,15 @@
 {% comment %} We use {{ }} to Get Data {% endcomment %}
 
 {% block content %}
-<div class="container">
     <h1>Articels List</h1>
-
+<div class='articles'>
     {% for i in articels %}
-    <h2><a href="{% url 'articel:Detial' slug=i.slog %}">{{i.title}}</a></h2>
-    <p>{{i.snippet}}</p>
-    <p>{{i.date}}</p>
+    <div class='article'>
+        <h2><a href="{% url 'articel:Detial' slug=i.slog %}">{{i.title}}</a></h2>
+        <p>{{i.snippet}}</p>
+        <p class='author'>Added by {{i.author.username}}</p>
+        <p>{{i.date}}</p>
+    </div>
     {% endfor %}
 </div>
 {% endblock content %}

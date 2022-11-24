@@ -19,15 +19,15 @@ from . import views
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.conf import settings
 from django.conf.urls.static import static
-
+from articels.views import articelsList
 
 urlpatterns = [
     path('admin/', admin.site.urls),  # path('url', 'function')
     path('about/', views.about),
-    path('', views.home),
     path('articels/', include('articels.urls')), # include('urls file in other app')
     path('NotFound/', views.NotFound),
     path('accounts/', include('accounts.urls')),
+    path('', articelsList),
 
 ]
 

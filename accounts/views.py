@@ -25,7 +25,11 @@ def Login(request):
             # Login
             user = form.get_user()
             jng_Login(request, user)
-            return redirect('articel:List')
+            
+            if 'next' in request.POST:
+                return redirect(request.POST.get('next'))
+            else: 
+                return redirect('articel:List')
     else:
         form = AuthenticationForm()
     return render(request, GetViewName('Login'), {"form":form})

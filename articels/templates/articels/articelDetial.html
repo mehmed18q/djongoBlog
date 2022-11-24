@@ -4,14 +4,15 @@
 
 {% block content %}
     <div class="article_detial">
-        <div class="article">
+        <div class="article" style="text-align:center;">
+            <img src="{{articel.Image.url}}">
+            <hr>
             <h3>{{ articel.title }}</h3>
-        </hr>
-        <img src="{{articel.Image.url}}">
-    </br>
+    <br>
             <p>{{ articel.body }}</p>
-        </br>
-        <p>{{ articel.date }}</p>
+        <br>
+        <p class="creatdate">{{ articel.date }}</p>
+        <p class='author'>Added by {{articel.author.username}}</p>
         </div>
     </div>
 {% endblock content %}

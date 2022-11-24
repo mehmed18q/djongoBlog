@@ -19,5 +19,7 @@ from . import views
 app_name = "articel"
 urlpatterns = [  
     path('', views.articelsList, name="List"),
+    path('create', views.CreateArticle, name="Create"),
+    path('create/', views.CreateArticle, name="Create"),
     path('<slug>', views.articelDetial, name="Detial"),
 ]

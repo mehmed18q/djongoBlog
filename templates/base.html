@@ -10,19 +10,36 @@
         <link rel="stylesheet" href="{% static 'style.css' %}">
     </head>
     <body>
-        <h1>
-            <a href="{% url 'articel:List' %}">@ LOGO @</a>
-        </h1>
-        <nav>
-            <ul>
-                <li>
-                    <form class="logout-link" action="{% url 'accounts:Logout' %}" method="post">
-                    {% csrf_token %}
-                    <input type="submit" value="Logout">
-                    </form>
-                </li>
-            </ul>
-        </nav>
+<header>
+    <h1>
+        <a href="{% url 'articel:List' %}">@ LOGO @</a>
+    </h1>
+    <nav>
+        <ul>
+            {% if user.is_authenticated %}
+            <li>
+                <span>Welcome {{ user.username }} !</span>
+            </li>
+            <li>
+                <form class="logout-link" action="{% url 'accounts:Logout' %}" method="post">
+                {% csrf_token %}
+                <input type="submit" value="Logout">
+                </form>
+            </li>
+            <li>
+                <a class="highlight" href = "{% url 'articel:Create' %}"> Create New Article </a>
+            </li>
+            {% else %}
+            <li>
+                <a href = "{% url 'accounts:Login' %}"> Login </a>
+            </li>
+            <li>
+                <a href = "{% url 'accounts:signup' %}"> Signup </a>
+            </li>
+            {% endif %}
+        </ul>
+    </nav>
+</header>
         <div class="wrapper">
             {% block content %}
             {% endblock content %}
